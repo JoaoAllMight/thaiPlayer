@@ -3,21 +3,18 @@ from tkinter import PhotoImage
 from pygame import mixer
 from PIL import Image, ImageTk
 
-# Inicializa o mixer de áudio
 mixer.init()
 
-# --- Função para tocar música ---
+#Função para tocar música 
 def tocar_musica(caminho):
     mixer.music.load(caminho)
     mixer.music.play()
 
-# --- Interface principal ---
 janela = tk.Tk()
 janela.title("Meus Discos Favoritos")
 janela.geometry("900x400")
 janela.configure(bg="#202020")
 
-# --- Dados dos discos ---
 discos = [
     {
         "banda": "Home Made Kazoku",
@@ -44,7 +41,7 @@ for i, disco in enumerate(discos):
     frame = tk.Frame(janela, bg="#2c2c2c", bd=2, relief="ridge")
     frame.place(x=50 + i*280, y=40, width=250, height=320)
 
-    # Capa do disco
+    # Capas dos discos
     img = Image.open(disco["imagem"])
     img = img.resize((200, 200))
     img_tk = ImageTk.PhotoImage(img)
@@ -63,3 +60,4 @@ for i, disco in enumerate(discos):
     btn.pack(pady=10)
 
 janela.mainloop()
+
